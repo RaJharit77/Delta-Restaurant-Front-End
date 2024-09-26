@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuSection from '../components/MenuSection';
 
-function MenuSection() {
+function MenuSectionPage() {
     return (
         <div>
             <MenuSection />
@@ -9,4 +9,4 @@ function MenuSection() {
     );
 }
 
-export default MenuSection;
+export default MenuSectionPage;

@@ -1,15 +1,19 @@
 import React from 'react';
-import Hero from './components/HeroSection';
-import Menu from './components/MenuSection';
+import AboutPage from './pages/AboutPage';
+import Accueil from './pages/AccueilSectionPage';
 import Footer from './pages/Footer';
+import MenuPage from './pages/MenuSectionPage';
 import NavigationBar from './pages/NavBar';
+import ReservationPage from './pages/ReservationPage';
 
 function App() {
   return (
     <div>
       <NavigationBar />
-      <Hero />
-      <Menu />
+      <Accueil />
+      <AboutPage />
+      <MenuPage />
+      <ReservationPage />
       <Footer />
     </div>
   );
