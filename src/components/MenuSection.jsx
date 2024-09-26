@@ -12,7 +12,7 @@ function Menu() {
     return (
         <div id="menu" className="my-12 w-full">
             <h2 className="text-4xl text-blue-800 dark:text-white font-bold mb-8 text-center">Our Menu</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto">
                 {menuItems.map(item => (
                     <div key={item.id} className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                         <img src={item.image} alt={item.name} className="w-full h-48 object-cover" />

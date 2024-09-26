@@ -15,16 +15,17 @@ function Accueil() {
     }, []);
 
     return (
-        <div 
-            className="h-screen bg-cover bg-center w-full relative" 
+        <div
+            id='home'
+            className="h-screen bg-cover bg-center w-full relative"
             style={{ backgroundImage: `url(${heroImage})` }}
         >
             <div className="absolute inset-0 bg-black" style={{ opacity }}></div>
-            <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-center dark:text-gray-300">
-                <h1 className="text-5xl font-bold mb-4 text-creme dark:text-white">
+            <div className="relative z-10 h-full w-full flex flex-col items-center justify-center text-center">
+                <h1 className="text-5xl sm:text-4xl font-bold mb-4 text-creme">
                     Bienvenue chez Delta Restaurant
                 </h1>
-                <p className="text-xl mb-8 text-creme">
+                <p className="text-xl sm:text-lg mb-8 text-creme">
                     Découvrez le goût d'une cuisine de luxe.
                 </p>
                 <a href="#menu" className="bg-creme text-black py-2 px-4 rounded hover:bg-or transition">

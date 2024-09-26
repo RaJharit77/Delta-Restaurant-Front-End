@@ -4,7 +4,8 @@ import backgroundImage from '../../public/img/about.jpg';
 function About() {
     return (
         <div
-            className="relative bg-cover bg-center text-noir py-12 px-6 lg:px-24"
+            id='about'
+            className="relative bg-cover bg-center text-noir py-12 px-6 sm:px-4 lg:px-24"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
             <div className="absolute inset-0 bg-black opacity-60"></div>
