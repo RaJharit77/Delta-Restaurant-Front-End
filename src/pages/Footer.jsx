@@ -21,16 +21,16 @@ function Footer() {
                 </div>
 
                 <div className="flex space-x-6 justify-center sm:justify-end sm:mr-8 mt-1 sm:mt-0 items-center mb-2 sm:mb-1"> {/* Espacement ajusté et alignement des éléments */}
-                    <a href="#" className="text-creme hover:text-or">
+                    <a href="https://www.facebook.com/" className="text-creme hover:text-or">
                         <FontAwesomeIcon icon={faFacebook} size="2xl" />
                     </a>
-                    <a href="#" className="text-creme hover:text-or">
+                    <a href="https://www.instagram.com/" className="text-creme hover:text-or">
                         <FontAwesomeIcon icon={faInstagram} size="2xl" />
                     </a>
-                    <a href="#" className="text-creme hover:text-or">
+                    <a href="https://x.com/" className="text-creme hover:text-or">
                         <FontAwesomeIcon icon={faXTwitter} size="2xl" />
                     </a>
-                    <a href="#" className="text-creme hover:text-or">
+                    <a href="https://linkedin.com/" className="text-creme hover:text-or">
                         <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                     </a>
                     <a href="https://web.whatsapp.com/" className="text-creme hover:text-or">

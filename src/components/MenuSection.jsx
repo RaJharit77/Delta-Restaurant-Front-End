@@ -7,14 +7,14 @@ function Menu() {
             name: 'Margherita Pizza',
             description: 'A classic margherita pizza with fresh mozzarella, basil, and tomato sauce.',
             price: 12.99,
-            image: '/img/menu4.jpg',
+            image: '/img/margherita.jpg',
         },
         {
             id: 2,
             name: 'Spaghetti Carbonara',
             description: 'Spaghetti with pancetta, egg, and Parmesan in a creamy sauce.',
             price: 14.99,
-            image: '/img/menu5.jpg',
+            image: '/img/spaghetti.jpg',
         },
         {
             id: 3,
@@ -35,14 +35,14 @@ function Menu() {
             name: 'Cheeseburger',
             description: 'A juicy cheeseburger with cheddar cheese, lettuce, tomato, and pickles.',
             price: 11.99,
-            image: '/img/menu2.jpg',
+            image: '/img/cheeseBurger.jpg',
         },
         {
             id: 6,
             name: 'Tiramisu',
             description: 'A classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.',
             price: 6.99,
-            image: '/img/menu6.jpg',
+            image: '/img/tiramisu.jpg',
         },
         {
             id: 7,
@@ -58,6 +58,13 @@ function Menu() {
             price: 7.99,
             image: '/img/menu8.jpg',
         },
+        {
+            id: 9,
+            name: 'Bruschetta',
+            description: 'Toasted bread topped with a mixture of chopped tomatoes, garlic, and basil.',
+            price: 7.99,
+            image: '/img/menu9.jpg',
+        },
     ];
 
     const [showAll, setShowAll] = useState(false);
@@ -67,7 +74,7 @@ function Menu() {
         <div
             id="menu"
             className="relative my-0 w-full bg-center bg-cover"
-            style={{ backgroundImage: `url(/img/menu1.jpg)` }}
+            style={{ backgroundImage: `url(/img/menuP.jpg)` }}
         >
             <div className="absolute inset-0 bg-black opacity-50"></div>
 
@@ -102,7 +109,7 @@ function Menu() {
                 )}
 
                 <div className="text-center mt-8">
-                    <div className="flex justify-center space-x-4"> {/* Ajout de la flexbox pour aligner les boutons */}
+                    <div className="flex justify-center space-x-4">
                         <button
                             onClick={() => setShowAll(!showAll)}
                             className="bg-emerald-700 text-black px-4 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
