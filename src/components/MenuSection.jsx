@@ -58,16 +58,10 @@ function Menu() {
             price: 7.99,
             image: '/img/menu8.jpg',
         },
-        {
-            id: 9,
-            name: 'Bruschetta',
-            description: 'Toasted bread topped with a mixture of chopped tomatoes, garlic, and basil.',
-            price: 7.99,
-            image: '/img/menu8.jpg',
-        },
     ];
 
     const [showAll, setShowAll] = useState(false);
+    const [showDessert, setShowDessert] = useState(false);
 
     return (
         <div
@@ -81,29 +75,48 @@ function Menu() {
                 <h2 className="text-4xl text-creme dark:text-white font-bold mb-8 text-center">
                     Notre Menu
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto cursor-pointer">
-                    {menuItems.slice(0, showAll ? menuItems.length : 6).map(item => (
-                        <div
-                            key={item.id}
-                            className="bg-emerald-600 dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200 ease-in-out"
-                            style={{ height: '400px', width: '100%', display: 'flex', flexDirection: 'column' }}
-                        >
-                            <img src={item.image} alt={item.name} className="w-full h-60 object-cover" />
-                            <div className="p-4 flex-grow">
-                                <h3 className="text-lg font-bold mb-2 dark:text-gray-300">{item.name}</h3>
-                                <p className="text-sm mb-2 dark:text-gray-400">{item.description}</p>
-                                <p className="text-lg font-bold dark:text-gray-300">${item.price.toFixed(2)}</p>
-                            </div>
+
+                {!showDessert ? (
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto cursor-pointer">
+                            {menuItems.slice(0, showAll ? menuItems.length : 6).map(item => (
+                                <div
+                                    key={item.id}
+                                    className="bg-emerald-600 dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200 ease-in-out"
+                                    style={{ height: '400px', width: '100%', display: 'flex', flexDirection: 'column' }}
+                                >
+                                    <img src={item.image} alt={item.name} className="w-full h-60 object-cover" />
+                                    <div className="p-4 flex-grow">
+                                        <h3 className="text-lg font-bold mb-2 dark:text-gray-300">{item.name}</h3>
+                                        <p className="text-sm mb-2 dark:text-gray-400">{item.description}</p>
+                                        <p className="text-lg font-bold dark:text-gray-300">${item.price.toFixed(2)}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </>
+                ) : (
+                    <div className="text-center">
+                        <img src="/img/menuRestaurant.png" alt="Menu de dessert" className="mx-auto w-96 h-auto rounded-lg shadow-lg" />
+                    </div>
+                )}
+
                 <div className="text-center mt-8">
-                    <button
-                        onClick={() => setShowAll(!showAll)} 
-                        className="bg-emerald-700 text-black px-4 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
-                    >
-                        {showAll ? 'Voir Moins' : 'Voir Tout'} 
-                    </button>
+                    <div className="flex justify-center space-x-4"> {/* Ajout de la flexbox pour aligner les boutons */}
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="bg-emerald-700 text-black px-4 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
+                        >
+                            {showAll ? 'Voir Moins' : 'Voir Tout'}
+                        </button>
+
+                        <button
+                            onClick={() => setShowDessert(!showDessert)}
+                            className="bg-emerald-700 text-black px-4 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
+                        >
+                            {showDessert ? 'Retour au Menu Principal' : 'Besoin d\'autre chose ?'}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

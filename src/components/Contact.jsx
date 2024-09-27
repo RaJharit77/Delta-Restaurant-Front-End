@@ -2,21 +2,26 @@ import React from 'react';
 
 function Contact() {
     return (
-        <div id='contact' className="relative py-16 bg-gray-100 dark:bg-gray-900">
+        <div
+            id="contact"
+            className="relative py-16 bg-cover bg-center"
+            style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/img/contact.jpg')`,
+            }}
+        >
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="lg:text-center">
-                    <h2 className="text-3xl leading-9 font-extrabold text-gray-900 dark:text-white sm:text-4xl sm:leading-10">
+                    <h2 className="text-3xl leading-9 font-extrabold text-creme sm:text-4xl sm:leading-10">
                         Contactez-nous
                     </h2>
-                    <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto dark:text-gray-400">
-                        N'hésitez pas à nous contacter pour toute question sur nos services ou autre chose
+                    <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-300 lg:mx-auto">
+                        N'hésitez pas à nous contacter pour toute question sur nos services ou autre chose.
                     </p>
                 </div>
 
                 <div className="mt-12 lg:flex lg:justify-between lg:items-start">
-                    {/* Formulaire de contact */}
                     <div className="lg:w-1/2 lg:pr-8">
-                        <form className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+                        <form className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 shadow-lg rounded-lg p-8">
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     Nom
@@ -76,11 +81,10 @@ function Contact() {
                         </form>
                     </div>
 
-                    {/* Coordonnées de contact */}
                     <div className="mt-12 lg:mt-0 lg:w-1/2 lg:pl-8">
-                        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+                        <div className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 shadow-lg rounded-lg p-8">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Coordonnées</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <p className="text-sm text-gray-700 dark:text-gray-700 mb-4">
                                 Vous pouvez également nous contacter directement à notre adresse ou par téléphone.
                             </p>
                             <ul className="space-y-4">
@@ -100,10 +104,9 @@ function Contact() {
 
                             <div className="mt-8">
                                 <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Localisation</h4>
-                                {/* Carte de localisation (intégration Google Maps ou image statique) */}
                                 <div className="relative h-64">
                                     <img
-                                        src="/img/map-placeholder.jpg"
+                                        src="/img/carte.png"
                                         alt="Carte de localisation"
                                         className="absolute inset-0 w-full h-full object-cover rounded-lg"
                                     />
