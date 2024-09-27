@@ -7,7 +7,7 @@ function Reservation() {
             className="h-screen flex items-center justify-center bg-cover bg-center text-center relative"
             style={{ backgroundImage: "url('../../public/img/reservation.jpg')" }}
         >
-            <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+            <div className="absolute inset-0 bg-black opacity-80 z-0"></div>
 
             <div className="relative z-10 bg-white bg-opacity-10 p-6 rounded-lg shadow-lg max-w-lg w-full">
                 <h2 className="text-4xl font-bold mb-8 text-creme">
@@ -20,7 +20,7 @@ function Reservation() {
                     <div className="mb-4">
                         <input
                             type="text"
-                            placeholder="Prénom"
+                            placeholder="Prénom(s)"
                             className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                         />
                     </div>

@@ -8,7 +8,7 @@ function About() {
             className="relative bg-cover bg-center text-noir py-12 px-6 sm:px-4 lg:px-24"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-            <div className="absolute inset-0 bg-black opacity-60"></div>
+            <div className="absolute inset-0 bg-black opacity-80"></div>
 
             <div className="relative z-10">
                 <div className="text-center mb-12">
