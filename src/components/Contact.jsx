@@ -90,15 +90,15 @@ function Contact() {
                             <ul className="space-y-4">
                                 <li>
                                     <span className="font-bold text-gray-900 dark:text-white">Adresse :</span>{' '}
-                                    123 Rue de la Gastronomie, 75001 Paris, France
+                                    Rue de la Gastronomie, 101 Antananarivo Ville, Madagascar
                                 </li>
                                 <li>
                                     <span className="font-bold text-gray-900 dark:text-white">Téléphone :</span>{' '}
-                                    +33 1 23 45 67 89
+                                    +261 032 00 000 00
                                 </li>
                                 <li>
                                     <span className="font-bold text-gray-900 dark:text-white">Email :</span>{' '}
-                                    contact@restaurant-exemple.com
+                                    delta.restaurant@gmail.com
                                 </li>
                             </ul>
 
