@@ -161,14 +161,35 @@ function Menu() {
             name: 'Île Flottante au Caramel Beurre Salé',
             description: 'Sur un lit de crème anglaise vanillée, avec des amandes effilées caramélisées.',
             price: 10.37,
-            image: '/img/magret.jpg',
+            image: '/img/îleFlottant.jpg',
         },
         {
             id: 24,
             name: 'Assiette de Fromages Affinés',
             description: 'Sélection de fromages français et internationaux avec fruits secs et pain de campagne.',
             price: 13.99,
-            image: '/img/filetBar.jpg',
+            image: '/img/assietteFromage.jpg',
+        },
+        {
+            id: 25,
+            name: 'Champagne Dom Pérignon Millésimé',
+            description: 'Un vin effervescent réalisé grâce à l\'assemblage de raisins récoltés lors d\'une seule et même année.',
+            price: 10.77,
+            image: '/img/champagne.jpg',
+        },
+        {
+            id: 26,
+            name: 'Vin Blanc Sancerre',
+            description: ' Un vin d\'appellation d\'origine contrôlé situé le long de la Loire, dans le Cher. ',
+            price: 10.37,
+            image: '/img/vinBlancSancerre.jpg',
+        },
+        {
+            id: 27,
+            name: 'Vin Rouge Château Margaux',
+            description: 'Finesse, élégance et complexité sont les caractéristiques des vins de Château Margaux.',
+            price: 13.99,
+            image: '/img/châteauMargaux.jpg',
         },
     ];
 
