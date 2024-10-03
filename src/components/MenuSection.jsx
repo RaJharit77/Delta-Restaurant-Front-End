@@ -1,4 +1,4 @@
-/**import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 function Menu() {
     const menuItems = [
@@ -318,43 +318,5 @@ function Menu() {
         </div>
     );
 }
-
-export default Menu;*/
-// src/components/Menu.js
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-
-const Menu = () => {
-    const [menuItems, setMenuItems] = useState([]);
-
-    useEffect(() => {
-        const fetchMenuItems = async () => {
-            try {
-                const { data } = await axios.get('http://localhost:5000/api/menu');
-                setMenuItems(data);
-            } catch (error) {
-                console.error('Error fetching menu items:', error);
-            }
-        };
-
-        fetchMenuItems();
-    }, []);
-
-    return (
-        <div>
-            <h2>Notre Menu</h2>
-            <div>
-                {menuItems.map(({ _id, name, description, price, image }) => (
-                    <div key={_id}>
-                        <h3>{name}</h3>
-                        <p>{description}</p>
-                        <p>Prix: {price} €</p>
-                        <img src={image} alt={name} />
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
 
 export default Menu;
