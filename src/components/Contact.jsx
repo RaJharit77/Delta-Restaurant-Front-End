@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ function Contact() {
         message: '',
     });
 
+    const [submitStatus, setSubmitStatus] = useState(null); // Status for success or error message
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -15,6 +18,7 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitStatus(null); // Reset status on new submit
         try {
             const response = await fetch('http://localhost:5000/api/contact', {
                 method: 'POST',
@@ -24,7 +28,9 @@ function Contact() {
                 body: JSON.stringify(formData),
             });
             const data = await response.json();
-            alert(data.message);
+            setSubmitStatus({ type: 'success', message: data.message });
+
+            // Reset form
             setFormData({
                 name: '',
                 email: '',
@@ -33,7 +39,10 @@ function Contact() {
             });
         } catch (error) {
             console.error('Erreur lors de l\'envoi du message:', error);
-            alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+            setSubmitStatus({
+                type: 'error',
+                message: 'Une erreur est survenue. Veuillez réessayer plus tard.',
+            });
         }
     };
 
@@ -60,13 +69,13 @@ function Contact() {
                         <form onSubmit={handleSubmit} className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 shadow-lg rounded-lg p-8">
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                    Nom
+                                    Nom et Prénoms
                                 </label>
                                 <input
                                     type="text"
                                     name="name"
                                     className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
-                                    placeholder="Votre nom"
+                                    placeholder="Votre nom et prénoms"
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
@@ -122,7 +131,26 @@ function Contact() {
                                     Envoyer le message
                                 </button>
                             </div>
+
+                            {/* Message de succès ou d'échec */}
+                            {submitStatus && (
+                                <div
+                                    className={`mt-6 text-center text-lg ${
+                                        submitStatus.type === 'success'
+                                            ? 'text-emerald-500'
+                                            : 'text-red-500'
+                                    }`}
+                                >
+                                    {submitStatus.type === 'success' ? (
+                                        <FaCheckCircle className="inline mr-2" />
+                                    ) : (
+                                        <FaTimesCircle className="inline mr-2" />
+                                    )}
+                                    {submitStatus.message}
+                                </div>
+                            )}
                         </form>
+
                     </div>
 
                     <div className="mt-12 lg:mt-0 lg:w-1/2 lg:pl-8">
@@ -146,7 +174,6 @@ function Contact() {
                                 </li>
                             </ul>
 
-                            {/* Section de localisation ajoutée */}
                             <div className="mt-8">
                                 <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Localisation</h4>
                                 <div className="relative h-64">
