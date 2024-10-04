@@ -1,6 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            alert(data.message);
+            setFormData({
+                name: '',
+                email: '',
+                subject: '',
+                message: '',
+            });
+        } catch (error) {
+            console.error('Erreur lors de l\'envoi du message:', error);
+            alert('Une erreur est survenue. Veuillez réessayer plus tard.');
+        }
+    };
+
     return (
         <div
             id="contact"
@@ -21,7 +57,7 @@ function Contact() {
 
                 <div className="mt-12 lg:flex lg:justify-between lg:items-start">
                     <div className="lg:w-1/2 lg:pr-8">
-                        <form className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 shadow-lg rounded-lg p-8">
+                        <form onSubmit={handleSubmit} className="bg-white bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 shadow-lg rounded-lg p-8">
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     Nom
@@ -29,8 +65,10 @@ function Contact() {
                                 <input
                                     type="text"
                                     name="name"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600"
+                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre nom"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     required
                                 />
                             </div>
@@ -41,8 +79,10 @@ function Contact() {
                                 <input
                                     type="email"
                                     name="email"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600"
+                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     required
                                 />
                             </div>
@@ -53,8 +93,10 @@ function Contact() {
                                 <input
                                     type="text"
                                     name="subject"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600"
+                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Sujet"
+                                    value={formData.subject}
+                                    onChange={handleChange}
                                     required
                                 />
                             </div>
@@ -65,8 +107,10 @@ function Contact() {
                                 <textarea
                                     name="message"
                                     rows="5"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600"
+                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre message..."
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     required
                                 />
                             </div>
@@ -102,6 +146,7 @@ function Contact() {
                                 </li>
                             </ul>
 
+                            {/* Section de localisation ajoutée */}
                             <div className="mt-8">
                                 <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Localisation</h4>
                                 <div className="relative h-64">
