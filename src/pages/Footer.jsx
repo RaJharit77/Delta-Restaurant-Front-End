@@ -43,7 +43,7 @@ function Footer() {
             </div>
 
             <div className="w-full text-center bg-black py-2">
-                <p className="text-creme">&copy; {new Date().getFullYear()} Delta Restaurant. All rights reserved. Created by RaJharit77</p>
+                <p className="text-creme">&copy; {new Date().getFullYear()} Delta Restaurant®. All rights reserved. Created by RaJharit77</p>
             </div>
         </footer>
     );
