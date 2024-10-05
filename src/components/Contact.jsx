@@ -90,7 +90,7 @@ function Contact() {
                                 <input
                                     type="email"
                                     name="email"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
+                                    className="mt-1 block bg-black w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre email"
                                     value={formData.email}
                                     onChange={handleChange}
@@ -104,7 +104,7 @@ function Contact() {
                                 <input
                                     type="text"
                                     name="subject"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
+                                    className="mt-1 block bg-black w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Sujet"
                                     value={formData.subject}
                                     onChange={handleChange}
@@ -118,7 +118,7 @@ function Contact() {
                                 <textarea
                                     name="message"
                                     rows="5"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
+                                    className="mt-1 block bg-black w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre message..."
                                     value={formData.message}
                                     onChange={handleChange}

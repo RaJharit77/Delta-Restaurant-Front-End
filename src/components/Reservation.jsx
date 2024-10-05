@@ -60,9 +60,9 @@ function Reservation() {
         <div
             id="reservation"
             className="h-screen flex items-center justify-center bg-cover bg-center text-center relative"
-            style={{ backgroundImage: "url('../../public/img/reservation.jpg')" }}
+            style={{ backgroundImage: "url('/img/reservation.jpg')" }}
         >
-            <div className="absolute inset-0 bg-black opacity-80 z-0"></div>
+            <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
             <div className="relative z-10 bg-white bg-opacity-10 p-6 rounded-lg shadow-xl max-w-md w-full my-20">
                 <h2 className="text-4xl font-bold mb-8 text-creme">
