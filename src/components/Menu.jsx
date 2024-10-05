@@ -58,7 +58,7 @@ function Menu() {
                     </>
                 ) : (
                     <div className="text-center">
-                        <img src="/img/menuRestaurant.png" alt="Menu de dessert" className="mx-auto w-96 h-auto rounded-lg shadow-lg" />
+                        <img src="/img/menuRestaurant.png" alt="Autre Menu" className="mx-auto w-full max-w-xs h-auto rounded-lg shadow-lg" />
                     </div>
                 )}
 
