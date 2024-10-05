@@ -5,10 +5,12 @@ function Menu() {
     const [showAll, setShowAll] = useState(false);
     const [showDessert, setShowDessert] = useState(false);
 
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com';
+
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/menu');
+                const response = await fetch(`${apiUrl}/api/menu`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

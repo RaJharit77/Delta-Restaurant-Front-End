@@ -26,7 +26,7 @@ export default {
         argente: '#C0C0C0',    // Couleur argenté pour des touches modernes
         ivoire: '#FFFFF0',
         emerald: {
-          950: '#0B6B43', // Exemple de couleur personnalisée
+          950: '#0B6B43', // Couleur vert émeraude
         },
       },
     },

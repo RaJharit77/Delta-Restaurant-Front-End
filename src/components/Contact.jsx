@@ -9,7 +9,9 @@ function Contact() {
         message: '',
     });
 
-    const [submitStatus, setSubmitStatus] = useState(null); // Status for success or error message
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,9 +20,9 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitStatus(null); // Reset status on new submit
+        setSubmitStatus(null);
         try {
-            const response = await fetch('http://localhost:5000/api/contact', {
+            const response = await fetch(`${apiUrl}/api/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -132,7 +134,6 @@ function Contact() {
                                 </button>
                             </div>
 
-                            {/* Message de succès ou d'échec */}
                             {submitStatus && (
                                 <div
                                     className={`mt-6 text-center text-lg ${

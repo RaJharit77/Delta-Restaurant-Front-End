@@ -12,9 +12,11 @@ function Commande() {
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
 
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com';
+
     const fetchOrderNumber = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/generateOrderNumber');
+            const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
             const data = await response.json();
             setOrderData((prevData) => ({ ...prevData, orderNumber: data.orderNumber }));
         } catch (error) {
@@ -35,7 +37,7 @@ function Commande() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/commande', {
+            const response = await fetch(`${apiUrl}/api/commande`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

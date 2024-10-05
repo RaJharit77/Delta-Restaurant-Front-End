@@ -14,6 +14,8 @@ function Reservation() {
     const [status, setStatus] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
 
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com';
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setReservationData({ ...reservationData, [name]: value });
@@ -22,7 +24,7 @@ function Reservation() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/reservation', {
+            const response = await fetch(`${apiUrl}/api/reservation`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,7 +64,6 @@ function Reservation() {
         >
             <div className="absolute inset-0 bg-black opacity-80 z-0"></div>
 
-            {/* Conteneur avec marges en haut et en bas pour flotter */}
             <div className="relative z-10 bg-white bg-opacity-10 p-6 rounded-lg shadow-xl max-w-md w-full my-20">
                 <h2 className="text-4xl font-bold mb-8 text-creme">
                     Réservez une Table
@@ -129,7 +130,6 @@ function Reservation() {
                         />
                     </div>
 
-                    {/* Champ combiné pour date et heure */}
                     <div className="mb-4">
                         <input
                             type="datetime-local"
