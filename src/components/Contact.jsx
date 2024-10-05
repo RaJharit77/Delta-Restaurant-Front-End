@@ -76,7 +76,7 @@ function Contact() {
                                 <input
                                     type="text"
                                     name="name"
-                                    className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
+                                    className="mt-1 block bg-black w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm dark:bg-gray-700 dark:text-gray-300 focus:outline-none focus:ring focus:border-emerald-600 text-white"
                                     placeholder="Votre nom et prénoms"
                                     value={formData.name}
                                     onChange={handleChange}
