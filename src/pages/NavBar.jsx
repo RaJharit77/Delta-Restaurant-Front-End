@@ -37,6 +37,7 @@ function NavigationBar() {
                         <a href="#about" className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full">À Propos</a>
                         <a href="#menu" className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full">Menu</a>
                         <a href="#contact" className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+                        <a href="#commande" className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full">Commande</a>
 
                         <a href="#reservation" className="text-black bg-creme py-2 px-4 rounded hover:bg-or transition block text-center md:text-left mt-2 md:mt-0 relative glow-button">
                             Reservation

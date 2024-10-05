@@ -1,11 +1,12 @@
 import React from 'react';
 import AboutPage from './pages/AboutPage';
-import Accueil from './pages/AccueilSectionPage';
+import Accueil from './pages/AccueilPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './pages/Footer';
-import MenuPage from './pages/MenuSectionPage';
+import MenuPage from './pages/MenuPage';
 import NavigationBar from './pages/NavBar';
 import ReservationPage from './pages/ReservationPage';
+import CommandePage from './pages/commandePage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AboutPage />
       <MenuPage />
       <ReservationPage />
+      <CommandePage />
       <ContactPage />
       <Footer />
     </div>

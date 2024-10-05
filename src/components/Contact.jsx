@@ -51,7 +51,7 @@ function Contact() {
             id="contact"
             className="relative py-16 bg-cover bg-center"
             style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/img/contact.jpg')`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/contact.jpg')`,
             }}
         >
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +126,7 @@ function Contact() {
                             <div className="text-center">
                                 <button
                                     type="submit"
-                                    className="bg-emerald-700 text-white px-6 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
+                                    className="bg-creme text-black px-6 py-2 rounded hover:bg-or transition-colors duration-300"
                                 >
                                     Envoyer le message
                                 </button>
