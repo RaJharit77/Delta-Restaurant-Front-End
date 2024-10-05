@@ -22,7 +22,7 @@ function NavigationBar() {
                 </a>
                 
                 <button
-                    className="absolute right-4 top-7 block md:hidden text-creme"
+                    className={`absolute right-4 top-7 block md:hidden text-creme ${menuOpen ? 'bg-black' : ''} p-2 rounded`}
                     onClick={() => setMenuOpen(!menuOpen)}
                     style={{ zIndex: 51 }}
                 >
