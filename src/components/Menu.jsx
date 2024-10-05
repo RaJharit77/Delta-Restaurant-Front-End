@@ -75,7 +75,7 @@ function Menu() {
                             onClick={() => setShowDessert(!showDessert)}
                             className="bg-emerald-700 text-black px-4 py-2 rounded hover:bg-emerald-600 transition-colors duration-300"
                         >
-                            {showDessert ? 'Retour' : 'Besoin d\'autre chose ?'}
+                            {showDessert ? 'Retour au Menu' : 'Besoin d\'autre chose ?'}
                         </button>
                     </div>
                 </div>
