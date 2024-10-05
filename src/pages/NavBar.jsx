@@ -18,7 +18,7 @@ function NavigationBar() {
             <div className="max-w-screen-xl mx-auto flex justify-between items-center p-4">
                 <a href="#home" className="flex items-center">
                     <img src={logo} alt="Delta Restaurant Logo" className="w-14 h-14 object-cover rounded-full" />
-                    <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">Delta Restaurant®</span>
+                    <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">Delta Restaurant</span>
                 </a>
                 
                 <button
