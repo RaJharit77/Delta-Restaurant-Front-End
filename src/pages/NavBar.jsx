@@ -19,9 +19,8 @@ function NavigationBar() {
                 isScrolled || menuOpen ? 'bg-black bg-opacity-80 backdrop-blur-md' : 'bg-transparent'
             }`}
         >
-            {/* Espace ajusté pour le menu en mode responsive */}
-            <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-16' : ''}`}>
-                <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-12' : ''}`}>
+            <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-14' : ''}`}>
+                <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-10' : ''}`}>
                     <img src={logo} alt="Delta Restaurant Logo" className="w-14 h-14 object-cover rounded-full" />
                     <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">
                         Delta Restaurant
