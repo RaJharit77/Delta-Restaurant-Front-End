@@ -21,7 +21,12 @@ function NavigationBar() {
         >
             <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-10' : ''}`}>
                 <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-4' : ''}`}>
-                    <img src={logo} alt="Delta Restaurant Logo" className="w-14 h-14 object-cover rounded-full" />
+                    {/* Agrandissement de l'image lorsque le menu est ouvert */}
+                    <img 
+                        src={logo} 
+                        alt="Delta Restaurant Logo" 
+                        className={`object-cover rounded-full transition-transform duration-300 ${menuOpen ? 'w-20 h-20' : 'w-14 h-14'}`} 
+                    />
                     {!menuOpen && (
                         <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">
                             Delta Restaurant
