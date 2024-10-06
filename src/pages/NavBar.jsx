@@ -22,9 +22,11 @@ function NavigationBar() {
             <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-14' : ''}`}>
                 <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-10' : ''}`}>
                     <img src={logo} alt="Delta Restaurant Logo" className="w-14 h-14 object-cover rounded-full" />
-                    <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">
-                        Delta Restaurant
-                    </span>
+                    {!menuOpen && (
+                        <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">
+                            Delta Restaurant
+                        </span>
+                    )}
                 </a>
 
                 <button
