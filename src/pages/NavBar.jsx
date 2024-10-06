@@ -48,7 +48,7 @@ function NavigationBar() {
                     </svg>
                 </button>
 
-                <div className={`md:flex md:items-center ${menuOpen ? 'block' : 'hidden'} w-full md:w-auto mt-10 md:mt-0`}>
+                <div className={`md:flex md:items-center ${menuOpen ? 'block ml-8' : 'hidden'} w-full md:w-auto mt-10 md:mt-0`}>
                     <div className="flex flex-col md:flex-row md:space-x-4 items-center">
                         <a
                             href="#home"
