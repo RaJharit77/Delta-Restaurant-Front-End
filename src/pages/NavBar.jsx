@@ -69,16 +69,16 @@ function NavigationBar() {
                             Menu
                         </a>
                         <a
-                            href="#contact"
-                            className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full"
-                        >
-                            Contact
-                        </a>
-                        <a
                             href="#commande"
                             className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full"
                         >
                             Commande
+                        </a>
+                        <a
+                            href="#contact"
+                            className="text-creme hover:text-or block py-2 px-4 text-center md:text-left relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-or after:transition-all after:duration-300 hover:after:w-full"
+                        >
+                            Contact
                         </a>
 
                         <a
