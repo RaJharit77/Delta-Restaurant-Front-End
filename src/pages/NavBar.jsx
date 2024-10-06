@@ -19,8 +19,8 @@ function NavigationBar() {
                 isScrolled || menuOpen ? 'bg-black bg-opacity-80 backdrop-blur-md' : 'bg-transparent'
             }`}
         >
-            <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-14' : ''}`}>
-                <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-10' : ''}`}>
+            <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-10' : ''}`}>
+                <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-4' : ''}`}>
                     <img src={logo} alt="Delta Restaurant Logo" className="w-14 h-14 object-cover rounded-full" />
                     {!menuOpen && (
                         <span className="text-2xl font-bold text-creme ml-2 hover:text-or glow-button">
@@ -50,7 +50,7 @@ function NavigationBar() {
                     </svg>
                 </button>
 
-                <div className={`md:flex md:items-center ${menuOpen ? 'block ml-8' : 'hidden'} w-full md:w-auto mt-10 md:mt-0`}>
+                <div className={`md:flex md:items-center ${menuOpen ? 'block ml-4' : 'hidden'} w-full md:w-auto mt-8 md:mt-0`}>
                     <div className="flex flex-col md:flex-row md:space-x-4 items-center">
                         <a
                             href="#home"
