@@ -92,7 +92,7 @@ function NavigationBar() {
                             href="#reservation"
                             className="text-black bg-creme py-2 px-4 rounded hover:bg-or transition block text-center md:text-left mt-2 md:mt-0 relative glow-button"
                         >
-                            Reservation
+                            Réservation
                         </a>
                     </div>
                 </div>
