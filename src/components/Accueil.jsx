@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import heroImage from '../../public/img/phRealist.jpg';
+import heroImage from '../assets/img/phRealist.jpg';
 
 function Accueil() {
     const [opacity, setOpacity] = useState(0.5);
