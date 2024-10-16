@@ -10,7 +10,7 @@ function Menu() {
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {
-                const response = await fetch(`${apiUrl}/api/menu`);
+                const response = await fetch(`${apiUrl}/api/menus`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

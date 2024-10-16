@@ -37,7 +37,7 @@ function Commande() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${apiUrl}/api/commande`, {
+            const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
