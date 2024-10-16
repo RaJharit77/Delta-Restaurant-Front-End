@@ -4,7 +4,7 @@ import Accueil from './pages/AccueilPage';
 import CommandePage from './pages/CommandePage';
 import ContactPage from './pages/ContactPage';
 import Footer from './pages/Footer';
-import MenuPage from './pages/MenuPage';
+import MenuPage from './pages/MenusPage';
 import NavigationBar from './pages/NavBar';
 import ReservationPage from './pages/ReservationPage';
 
