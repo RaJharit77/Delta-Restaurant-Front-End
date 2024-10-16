@@ -167,7 +167,7 @@ function Contact() {
                                 </li>
                                 <li>
                                     <span className="font-bold text-gray-900 dark:text-white">Téléphone :</span>{' '}
-                                    +261 032 00 000 00
+                                    +261 032 00 000 00 ou +261 038 00 000 00
                                 </li>
                                 <li>
                                     <span className="font-bold text-gray-900 dark:text-white">Email :</span>{' '}
