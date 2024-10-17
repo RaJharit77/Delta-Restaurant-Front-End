@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutPage from './pages/AboutPage';
-import Accueil from './pages/AccueilPage';
+import AccueilPage from './pages/AccueilPage';
 import CommandePage from './pages/CommandesPage';
 import ContactPage from './pages/ContactsPage';
 import Footer from './pages/Footer';
@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <NavigationBar />
-      <Accueil />
+      <AccueilPage />
       <AboutPage />
       <MenuPage />
       <ReservationPage />
