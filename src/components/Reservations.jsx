@@ -14,7 +14,7 @@ function Reservation() {
     const [status, setStatus] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:5000';
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app/';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
