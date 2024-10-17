@@ -11,7 +11,7 @@ function Contact() {
 
     const [submitStatus, setSubmitStatus] = useState(null);
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_APP_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app/';
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_APP_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
