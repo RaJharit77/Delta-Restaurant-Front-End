@@ -14,7 +14,7 @@ function Reservation() {
     const [status, setStatus] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com';
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'http://localhost:5000';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -58,7 +58,7 @@ function Reservation() {
 
     return (
         <div
-            id="reservation"
+            id="reservations"
             className="h-screen flex items-center justify-center bg-cover bg-center text-center relative"
             style={{ backgroundImage: "url('/img/reservation.jpg')" }}
         >
