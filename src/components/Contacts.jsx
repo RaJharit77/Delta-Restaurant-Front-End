@@ -50,7 +50,7 @@ function Contact() {
 
     return (
         <div
-            id="contact"
+            id="contacts"
             className="relative py-16 bg-cover bg-center"
             style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/contact.jpg')`,
@@ -136,11 +136,10 @@ function Contact() {
 
                             {submitStatus && (
                                 <div
-                                    className={`mt-6 text-center text-lg ${
-                                        submitStatus.type === 'success'
-                                            ? 'text-emerald-500'
-                                            : 'text-red-500'
-                                    }`}
+                                    className={`mt-6 text-center text-lg ${submitStatus.type === 'success'
+                                        ? 'text-emerald-500'
+                                        : 'text-red-500'
+                                        }`}
                                 >
                                     {submitStatus.type === 'success' ? (
                                         <FaCheckCircle className="inline mr-2" />
@@ -151,7 +150,6 @@ function Contact() {
                                 </div>
                             )}
                         </form>
-
                     </div>
 
                     <div className="mt-12 lg:mt-0 lg:w-1/2 lg:pl-8">

@@ -4,7 +4,7 @@ import backgroundImage from '../assets/img/about.jpg';
 function About() {
     return (
         <div
-            id='about'
+            id="about"
             className="relative bg-cover bg-center text-noir py-12 px-6 sm:px-4 lg:px-24"
             style={{ backgroundImage: `url(${backgroundImage})` }}
         >

@@ -70,7 +70,7 @@ function Commande() {
 
     return (
         <div
-            id="commande"
+            id="commandes"
             className="h-screen flex items-center justify-center bg-cover bg-center text-center relative"
             style={{ backgroundImage: "url('/img/commande.jpg')" }}
         >

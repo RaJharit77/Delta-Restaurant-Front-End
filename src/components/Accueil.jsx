@@ -16,7 +16,7 @@ function Accueil() {
 
     return (
         <div
-            id='home'
+            id="accueil"
             className="h-screen bg-cover bg-center w-full relative"
             style={{ backgroundImage: `url(${heroImage})` }}
         >

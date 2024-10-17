@@ -26,7 +26,7 @@ function Menu() {
 
     return (
         <div
-            id="menu"
+            id="menus"
             className="relative my-0 w-full bg-center bg-cover"
             style={{ backgroundImage: `url(/img/menuP.jpg)` }}
         >
