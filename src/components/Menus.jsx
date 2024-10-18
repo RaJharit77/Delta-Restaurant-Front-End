@@ -5,7 +5,7 @@ function Menu() {
     const [showAll, setShowAll] = useState(false);
     const [showDessert, setShowDessert] = useState(false);
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_APP_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
 
     useEffect(() => {
         const fetchMenuItems = async () => {
