@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# il y a le dossier dist
 node_modules
 dist-ssr
 *.local
