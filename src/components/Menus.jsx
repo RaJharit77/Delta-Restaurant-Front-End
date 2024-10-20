@@ -7,6 +7,8 @@ function Menu() {
 
     const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
 
+    /*const apiUrl = 'http://localhost:50000';*/
+
     useEffect(() => {
         const fetchMenuItems = async () => {
             try {

@@ -4,10 +4,10 @@ import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 function Reservation() {
     const [reservationData, setReservationData] = useState({
         name: '',
-        surname: '',
+        firstname: '',
         email: '',
         phone: '',
-        datetime: '',
+        dateTime: '',
         guests: '',
     });
 
@@ -15,6 +15,8 @@ function Reservation() {
     const [responseMessage, setResponseMessage] = useState('');
 
     const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
+
+    /*const apiUrl = 'http://localhost:50000';*/
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -39,10 +41,10 @@ function Reservation() {
                 setResponseMessage(data.message);
                 setReservationData({
                     name: '',
-                    surname: '',
+                    firstname: '',
                     email: '',
                     phone: '',
-                    datetime: '',
+                    dateTime: '',
                     guests: '',
                 });
             } else {
