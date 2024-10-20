@@ -12,9 +12,9 @@ function Commande() {
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
 
-    /*const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';*/
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
 
-    const apiUrl = 'http://localhost:5000';
+    /*const apiUrl = 'http://localhost:5000';*/
 
     const fetchOrderNumber = async () => {
         try {
