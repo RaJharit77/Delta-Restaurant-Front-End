@@ -3,8 +3,8 @@ import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 function Reservation() {
     const [reservationData, setReservationData] = useState({
-        name: '',
         firstname: '',
+        name: '',
         email: '',
         phone: '',
         dateTime: '',
@@ -14,9 +14,9 @@ function Reservation() {
     const [status, setStatus] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
+    /*const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';*/
 
-    /*const apiUrl = 'http://localhost:50000';*/
+    const apiUrl = 'http://localhost:5000';
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,8 +40,8 @@ function Reservation() {
                 setStatus('success');
                 setResponseMessage(data.message);
                 setReservationData({
-                    name: '',
                     firstname: '',
+                    name: '',
                     email: '',
                     phone: '',
                     dateTime: '',
@@ -91,22 +91,22 @@ function Reservation() {
                     <div className="mb-4">
                         <input
                             type="text"
-                            name="name"
+                            name="firstname"
                             placeholder="Prénom(s)"
                             className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             onChange={handleChange}
-                            value={reservationData.name}
+                            value={reservationData.firstname}
                         />
                     </div>
 
                     <div className="mb-4">
                         <input
                             type="text"
-                            name="surname"
+                            name="name"
                             placeholder="Nom"
                             className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             onChange={handleChange}
-                            value={reservationData.surname}
+                            value={reservationData.name}
                         />
                     </div>
 
@@ -135,10 +135,10 @@ function Reservation() {
                     <div className="mb-4">
                         <input
                             type="datetime-local"
-                            name="datetime"
+                            name="dateTime"
                             className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             onChange={handleChange}
-                            value={reservationData.datetime}
+                            value={reservationData.dateTime}
                         />
                     </div>
 

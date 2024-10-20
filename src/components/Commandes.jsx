@@ -12,24 +12,26 @@ function Commande() {
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';
+    /*const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com' || 'https://delta-restaurant-back-end.vercel.app';*/
 
-    /*const apiUrl = 'http://localhost:50000';*/
+    const apiUrl = 'http://localhost:5000';
 
     const fetchOrderNumber = async () => {
         try {
             const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
             const data = await response.json();
-            setOrderData((prevData) => ({ ...prevData, orderNumber: data.orderNumber }));
+            setOrderData((prevData) => {
+                console.log('Updating orderData:', { ...prevData, orderNumber: data.orderNumber });
+                return { ...prevData, orderNumber: data.orderNumber };
+            });            
         } catch (error) {
             console.error('Erreur lors de la génération du numéro de commande:', error);
         }
     };
     
-
     useEffect(() => {
         fetchOrderNumber();
-    }, []);
+    }, []);    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -51,14 +53,13 @@ function Commande() {
 
             if (response.ok) {
                 setStatus('success');
-                setResponseMessage('Commande envoyée avec succès!');
+                setResponseMessage(`Commande envoyée avec succès! Numéro de commande: ${data.order.orderNumber}`);
                 setOrderData({
                     mealName: '',
                     quantity: '',
                     tableNumber: '',
-                    orderNumber: '' 
+                    orderNumber: ''
                 });
-                fetchOrderNumber();
             } else {
                 setStatus('error');
                 setResponseMessage(data.message || 'Une erreur est survenue.');
