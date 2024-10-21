@@ -1,39 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 function Commande() {
     const [orderData, setOrderData] = useState({
         mealName: '',
         quantity: '',
-        tableNumber: '',
-        uniqueOrderId: ''
+        tableNumber: ''
     });
 
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
 
     const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_API_URL;
-
-    /*const apiUrl = 'http://localhost:5000';*/
-
-    const fetchOrderNumber = async () => {
-        try {
-            const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
-            const data = await response.json().catch(() => ({
-                message: 'Erreur lors du parsing JSON',
-            }));
-            setOrderData((prevData) => {
-                console.log('Updating orderData:', { ...prevData, uniqueOrderId: data.uniqueOrderId });
-                return { ...prevData, uniqueOrderId: data.uniqueOrderId };
-            });
-        } catch (error) {
-            console.error('Erreur lors de la génération de l\'identifiant de commande:', error);
-        }
-    };    
-
-    useEffect(() => {
-        fetchOrderNumber();
-    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -48,18 +26,18 @@ function Commande() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
             });
-    
+
             if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-    
+
             const data = await response.json();
             setStatus('success');
-            setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.uniqueOrderId}`);
+            setResponseMessage(`Commande envoyée avec succès! Repas: ${data.order.mealName}, Quantité: ${data.order.quantity}, Table: ${data.order.tableNumber}`);
         } catch (error) {
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
             console.error('Erreur lors de la commande:', error);
         }
-    };    
+    };
 
     return (
         <div
@@ -73,73 +51,63 @@ function Commande() {
                 <h2 className="text-4xl font-bold mb-8 text-creme">
                     Passer une Commande
                 </h2>
-                <p className="text-lg text-creme mb-4">
-                    Remplissez le formulaire ci-dessous pour passer votre commande dans notre restaurant.
+                <p className="text-xl text-white mb-4">
+                    Remplissez le formulaire ci-dessous pour passer votre commande.
                 </p>
-
-                {status === 'success' && (
-                    <div className="flex items-center justify-center text-green-500 mb-4">
-                        <FaCheckCircle className="mr-2" />
-                        <span>{responseMessage}</span>
-                    </div>
-                )}
-                {status === 'error' && (
-                    <div className="flex items-center justify-center text-red-500 mb-4">
-                        <FaTimesCircle className="mr-2" />
-                        <span>{responseMessage}</span>
-                    </div>
-                )}
-
-                <form className="w-full" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="mb-4">
+                        <label htmlFor="mealName" className="block text-white mb-2">Nom du plat</label>
                         <input
                             type="text"
+                            id="mealName"
                             name="mealName"
-                            placeholder="Nom du repas"
-                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
-                            onChange={handleChange}
+                            className="w-full p-2 border border-gray-300 rounded"
                             value={orderData.mealName}
+                            onChange={handleChange}
                             required
                         />
                     </div>
 
                     <div className="mb-4">
+                        <label htmlFor="quantity" className="block text-white mb-2">Quantité</label>
                         <input
                             type="number"
+                            id="quantity"
                             name="quantity"
-                            placeholder="Quantité"
-                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
-                            onChange={handleChange}
+                            className="w-full p-2 border border-gray-300 rounded"
                             value={orderData.quantity}
-                            required
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <input
-                            type="number"
-                            name="tableNumber"
-                            placeholder="Numéro de table"
-                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             onChange={handleChange}
-                            value={orderData.tableNumber}
                             required
                         />
                     </div>
 
                     <div className="mb-4">
+                        <label htmlFor="tableNumber" className="block text-white mb-2">Numéro de table</label>
                         <input
                             type="text"
-                            name="orderNumber"
-                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
-                            value={orderData.uniqueOrderId}
-                            readOnly
+                            id="tableNumber"
+                            name="tableNumber"
+                            className="w-full p-2 border border-gray-300 rounded"
+                            value={orderData.tableNumber}
+                            onChange={handleChange}
+                            required
                         />
                     </div>
-                    <button type="submit" className="w-full bg-creme text-black py-2 px-4 rounded hover:bg-or transition">
-                        Envoyer la Commande
+
+                    <button
+                        type="submit"
+                        className="w-full bg-vert hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                    >
+                        Passer la commande
                     </button>
                 </form>
+
+                {responseMessage && (
+                    <div className={`mt-4 flex items-center ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                        {status === 'success' ? <FaCheckCircle className="mr-2" /> : <FaTimesCircle className="mr-2" />}
+                        <p>{responseMessage}</p>
+                    </div>
+                )}
             </div>
         </div>
     );
