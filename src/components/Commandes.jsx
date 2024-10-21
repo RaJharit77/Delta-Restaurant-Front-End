@@ -43,7 +43,7 @@ function Commande() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 35000);
+        const timeoutId = setTimeout(() => controller.abort(), 60000);
 
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
