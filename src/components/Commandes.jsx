@@ -6,7 +6,7 @@ function Commande() {
         mealName: '',
         quantity: '',
         tableNumber: '',
-        orderNumber: ''
+        uniqueOrderId: ''
     });
 
     const [responseMessage, setResponseMessage] = useState('');
@@ -23,13 +23,13 @@ function Commande() {
                 message: 'Erreur lors du parsing JSON',
             }));
             setOrderData((prevData) => {
-                console.log('Updating orderData:', { ...prevData, orderNumber: data.orderNumber });
-                return { ...prevData, orderNumber: data.orderNumber };
+                console.log('Updating orderData:', { ...prevData, uniqueOrderId: data.uniqueOrderId });
+                return { ...prevData, uniqueOrderId: data.uniqueOrderId };
             });
         } catch (error) {
-            console.error('Erreur lors de la génération du numéro de commande:', error);
+            console.error('Erreur lors de la génération de l\'identifiant de commande:', error);
         }
-    };
+    };    
 
     useEffect(() => {
         fetchOrderNumber();
@@ -42,30 +42,24 @@ function Commande() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 60000);
-
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
-                signal: controller.signal
             });
-
-            clearTimeout(timeoutId); // Clear timeout if response received
-
+    
             if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-
+    
             const data = await response.json();
             setStatus('success');
-            setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
+            setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.uniqueOrderId}`);
         } catch (error) {
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
             console.error('Erreur lors de la commande:', error);
         }
-    };
+    };    
 
     return (
         <div
@@ -138,7 +132,7 @@ function Commande() {
                             type="text"
                             name="orderNumber"
                             className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
-                            value={orderData.orderNumber}
+                            value={orderData.uniqueOrderId}
                             readOnly
                         />
                     </div>
