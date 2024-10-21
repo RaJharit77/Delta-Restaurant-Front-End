@@ -42,22 +42,22 @@ function Commande() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 sec timeout
+        
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
+                signal: controller.signal
             });
     
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
-            }
+            clearTimeout(timeoutId);
     
-            const data = await response.json().catch(() => ({
-                message: 'Erreur lors du parsing JSON',
-            }));
+            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+            
+            const data = await response.json();
             setStatus('success');
             setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
         } catch (error) {
@@ -65,7 +65,7 @@ function Commande() {
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
             console.error('Erreur lors de la commande:', error);
         }
-    };    
+    };       
 
     return (
         <div
