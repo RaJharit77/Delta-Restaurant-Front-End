@@ -51,18 +51,17 @@ function Commande() {
                 <h2 className="text-4xl font-bold mb-8 text-creme">
                     Passer une Commande
                 </h2>
-                <p className="text-xl text-white mb-4">
+                <p className="text-lg text-creme mb-4">
                     Remplissez le formulaire ci-dessous pour passer votre commande.
                 </p>
-                <form onSubmit={handleSubmit}>
+                <form  className="w-full" onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="mealName" className="block text-white mb-2">Nom du plat</label>
                         <input
                             type="text"
                             id="mealName"
                             name="mealName"
                             placeholder="Nom du repas et/ou boisson"
-                            className="w-full p-2 border border-gray-300 rounded"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.mealName}
                             onChange={handleChange}
                             required
@@ -70,13 +69,12 @@ function Commande() {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="quantity" className="block text-white mb-2">Quantité</label>
                         <input
                             type="number"
                             id="quantity"
                             name="quantity"
                             placeholder="Quantité"
-                            className="w-full p-2 border border-gray-300 rounded"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.quantity}
                             onChange={handleChange}
                             required
@@ -84,13 +82,12 @@ function Commande() {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="tableNumber" className="block text-white mb-2">Numéro de table</label>
                         <input
                             type="text"
                             id="tableNumber"
                             name="tableNumber"
                             placeholder="Numéro de table"
-                            className="w-full p-2 border border-gray-300 rounded"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.tableNumber}
                             onChange={handleChange}
                             required
@@ -99,7 +96,7 @@ function Commande() {
 
                     <button
                         type="submit"
-                        className="w-full bg-vert hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+                        className="w-full bg-creme text-black py-2 px-4 rounded hover:bg-or transition"
                     >
                         Passer la commande
                     </button>
