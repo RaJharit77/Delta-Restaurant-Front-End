@@ -71,49 +71,60 @@ function Commande() {
                     <div className="mb-4">
                         <input
                             type="text"
+                            id="mealName"
                             name="mealName"
+                            placeholder="Nom du repas"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.mealName}
                             onChange={handleChange}
-                            placeholder="Nom du plat"
                             required
-                            className="w-full p-2 rounded"
                         />
                     </div>
+
                     <div className="mb-4">
                         <input
                             type="text"
+                            id="softDrink"
                             name="softDrink"
+                            placeholder="Boisson"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.softDrink}
                             onChange={handleChange}
-                            placeholder="Boisson"
                             required
-                            className="w-full p-2 rounded"
                         />
                     </div>
+
                     <div className="mb-4">
                         <input
                             type="number"
+                            id="quantity"
                             name="quantity"
+                            placeholder="Quantité"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.quantity}
                             onChange={handleChange}
-                            placeholder="Quantité"
                             required
-                            className="w-full p-2 rounded"
                         />
                     </div>
+
                     <div className="mb-4">
                         <input
-                            type="number"
+                            type="text"
+                            id="tableNumber"
                             name="tableNumber"
+                            placeholder="Numéro de table"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
                             value={orderData.tableNumber}
                             onChange={handleChange}
-                            placeholder="Numéro de Table"
                             required
-                            className="w-full p-2 rounded"
                         />
                     </div>
-                    <button type="submit" className="w-full p-2 bg-creme text-black font-bold rounded hover:bg-white transition">
-                        Commander
+
+                    <button
+                        type="submit"
+                        className="w-full bg-creme text-black py-2 px-4 rounded hover:bg-or transition"
+                    >
+                        Passer la commande
                     </button>
                 </form>
             </div>
