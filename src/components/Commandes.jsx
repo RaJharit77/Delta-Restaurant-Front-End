@@ -54,6 +54,18 @@ function Commande() {
                 <p className="text-lg text-creme mb-4">
                     Remplissez le formulaire ci-dessous pour passer votre commande.
                 </p>
+                {status === 'success' && (
+                    <div className="flex items-center justify-center text-green-500 mb-4">
+                        <FaCheckCircle className="mr-2" />
+                        <span>{responseMessage}</span>
+                    </div>
+                )}
+                {status === 'error' && (
+                    <div className="flex items-center justify-center text-red-500 mb-4">
+                        <FaTimesCircle className="mr-2" />
+                        <span>{responseMessage}</span>
+                    </div>
+                )}
                 <form  className="w-full" onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <input
@@ -101,13 +113,6 @@ function Commande() {
                         Passer la commande
                     </button>
                 </form>
-
-                {responseMessage && (
-                    <div className={`mt-4 flex items-center ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-                        {status === 'success' ? <FaCheckCircle className="mr-2" /> : <FaTimesCircle className="mr-2" />}
-                        <p>{responseMessage}</p>
-                    </div>
-                )}
             </div>
         </div>
     );
