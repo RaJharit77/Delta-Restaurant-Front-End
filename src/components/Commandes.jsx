@@ -48,27 +48,20 @@ function Commande() {
                 },
                 body: JSON.stringify(orderData),
             });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setStatus('success');
-                setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
-                setOrderData({
-                    mealName: '',
-                    quantity: '',
-                    tableNumber: ''
-                });
-            } else {
-                setStatus('error');
-                setResponseMessage(data.message || 'Une erreur est survenue.');
+    
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status}`);
             }
+    
+            const data = await response.json();
+            setStatus('success');
+            setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
         } catch (error) {
-            console.error('Erreur lors de la commande:', error);
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
+            console.error('Erreur lors de la commande:', error);
         }
-    };
+    };    
 
     return (
         <div
