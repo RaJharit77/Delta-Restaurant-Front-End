@@ -19,7 +19,9 @@ function Commande() {
     const fetchOrderNumber = async () => {
         try {
             const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
-            const data = await response.json();
+            const data = await response.json().catch(() => ({
+                message: 'Erreur lors du parsing JSON',
+            }));
             setOrderData((prevData) => {
                 console.log('Updating orderData:', { ...prevData, orderNumber: data.orderNumber });
                 return { ...prevData, orderNumber: data.orderNumber };
@@ -53,7 +55,9 @@ function Commande() {
                 throw new Error(`Erreur HTTP: ${response.status}`);
             }
     
-            const data = await response.json();
+            const data = await response.json().catch(() => ({
+                message: 'Erreur lors du parsing JSON',
+            }));
             setStatus('success');
             setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
         } catch (error) {
