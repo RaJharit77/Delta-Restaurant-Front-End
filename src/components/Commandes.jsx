@@ -61,6 +61,7 @@ function Commande() {
                             type="text"
                             id="mealName"
                             name="mealName"
+                            placeholder="Nom du repas et/ou boisson"
                             className="w-full p-2 border border-gray-300 rounded"
                             value={orderData.mealName}
                             onChange={handleChange}
@@ -74,6 +75,7 @@ function Commande() {
                             type="number"
                             id="quantity"
                             name="quantity"
+                            placeholder="Quantité"
                             className="w-full p-2 border border-gray-300 rounded"
                             value={orderData.quantity}
                             onChange={handleChange}
@@ -87,6 +89,7 @@ function Commande() {
                             type="text"
                             id="tableNumber"
                             name="tableNumber"
+                            placeholder="Numéro de table"
                             className="w-full p-2 border border-gray-300 rounded"
                             value={orderData.tableNumber}
                             onChange={handleChange}
