@@ -25,15 +25,15 @@ function Commande() {
             setOrderData((prevData) => {
                 console.log('Updating orderData:', { ...prevData, orderNumber: data.orderNumber });
                 return { ...prevData, orderNumber: data.orderNumber };
-            });            
+            });
         } catch (error) {
             console.error('Erreur lors de la génération du numéro de commande:', error);
         }
     };
-    
+
     useEffect(() => {
         fetchOrderNumber();
-    }, []);    
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,8 +43,8 @@ function Commande() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 sec timeout
-        
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // 10 sec timeout
+
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
@@ -52,11 +52,11 @@ function Commande() {
                 body: JSON.stringify(orderData),
                 signal: controller.signal
             });
-    
-            clearTimeout(timeoutId);
-    
+
+            clearTimeout(timeoutId); // Clear timeout if response received
+
             if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-            
+
             const data = await response.json();
             setStatus('success');
             setResponseMessage(`Commande envoyée avec succès! Commande: ${data.order.orderNumber}`);
@@ -65,7 +65,7 @@ function Commande() {
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
             console.error('Erreur lors de la commande:', error);
         }
-    };       
+    };
 
     return (
         <div
