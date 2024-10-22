@@ -14,6 +14,8 @@ function Commande() {
 
     const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_API_URL;
 
+    /*const apiUrl ='http://localhost:5000';*/
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setOrderData({ ...orderData, [name]: value });
