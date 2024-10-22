@@ -6,7 +6,8 @@ function Commande() {
         mealName: '',
         softDrink: '',
         quantity: '',
-        tableNumber: ''
+        tableNumber: '',
+        orderNumber: ''
     });
 
     const [responseMessage, setResponseMessage] = useState('');
@@ -15,6 +16,21 @@ function Commande() {
     const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_API_URL;
 
     /*const apiUrl ='http://localhost:5000';*/
+
+    const fetchOrderNumber = async () => {
+        try {
+            const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
+            const data = await response.json();
+            setOrderData((prevData) => ({ ...prevData, orderNumber: data.orderNumber }));
+        } catch (error) {
+            console.error('Erreur lors de la génération du numéro de commande:', error);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchOrderNumber();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,15 +46,29 @@ function Commande() {
                 body: JSON.stringify(orderData),
             });
 
-            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-
             const data = await response.json();
-            setStatus('success');
-            setResponseMessage(`Commande envoyée avec succès! Repas: ${data.order.mealName}, Boisson: ${data.order.softDrink} Quantité: ${data.order.quantity}, Table: ${data.order.tableNumber}`);
+
+            if (response.ok) {
+                setStatus('success');
+                setResponseMessage('Commande envoyée avec succès!');
+                setOrderData({
+                    mealName: '',
+                    softDrink:'',
+                    quantity: '',
+                    tableNumber: '',
+                    orderNumber: ''
+                });
+                fetchOrderNumber();
+            } else {
+                setStatus('error');
+                setResponseMessage(data.message || 'Une erreur est survenue.');
+            }
+
+            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
         } catch (error) {
-            setStatus('error');
-            setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
             console.error('Erreur lors de la commande:', error);
+            setStatus('error');
+            setResponseMessage('Une erreur est survenue. Veuillez réessayer plus tard.');
         }
     };
 
@@ -120,6 +150,16 @@ function Commande() {
                             value={orderData.tableNumber}
                             onChange={handleChange}
                             required
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            name="orderNumber"
+                            className="w-full px-4 py-2 border border-creme rounded-md bg-transparent text-white"
+                            value={orderData.orderNumber}
+                            readOnly
                         />
                     </div>
 
