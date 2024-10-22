@@ -128,7 +128,6 @@ function Commande() {
                         Passer la commande
                     </button>
                 </form>
-                {status === 'loading' && <div className="loader">Commande en cours...</div>}
             </div>
         </div>
     );
