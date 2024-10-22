@@ -51,8 +51,8 @@ function Commande() {
             if (response.ok) {
                 setStatus('success');
                 setResponseMessage('Commande envoyée avec succès!');
-                
-                fetchOrderNumber();
+
+                fetchOrderNumber(); //Numéro de Commande
 
                 setOrderData({
                     mealName: '',
