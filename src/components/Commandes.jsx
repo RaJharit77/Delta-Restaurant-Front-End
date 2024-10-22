@@ -56,7 +56,7 @@ function Commande() {
                     softDrink:'',
                     quantity: '',
                     tableNumber: '',
-                    orderNumber: ''
+                    orderNumber: data.orderNumber
                 });
                 fetchOrderNumber();
             } else {
