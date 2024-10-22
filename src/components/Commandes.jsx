@@ -32,7 +32,7 @@ function Commande() {
 
             const data = await response.json();
             setStatus('success');
-            setResponseMessage(`Commande envoyée avec succès! Repas: ${data.order.mealName}, Quantité: ${data.order.quantity}, Table: ${data.order.tableNumber}`);
+            setResponseMessage(`Commande envoyée avec succès! Repas: ${data.order.mealName}, Boisson: ${data.order.softDrink} Quantité: ${data.order.quantity}, Table: ${data.order.tableNumber}`);
         } catch (error) {
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
