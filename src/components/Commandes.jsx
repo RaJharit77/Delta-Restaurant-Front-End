@@ -54,7 +54,7 @@ function Commande() {
                 setStatus('success');
                 setResponseMessage('Commande envoyée avec succès!');
 
-                fetchOrderNumber(); //Numéro de Commande
+                fetchOrderNumber(); 
 
                 setOrderData({
                     mealName: '',
@@ -101,11 +101,6 @@ function Commande() {
                     <div className="flex items-center justify-center text-red-500 mb-4">
                         <FaTimesCircle className="mr-2" />
                         <span>{responseMessage}</span>
-                    </div>
-                )}
-                {status === 'success' && nextOrderNumber && (
-                    <div className="text-creme text-xl mt-4">
-                        <p>Le numéro de la commande suivante est : {nextOrderNumber}</p>
                     </div>
                 )}
 
