@@ -51,6 +51,9 @@ function Commande() {
             if (response.ok) {
                 setStatus('success');
                 setResponseMessage('Commande envoyée avec succès!');
+                
+                fetchOrderNumber();
+
                 setOrderData({
                     mealName: '',
                     softDrink:'',
@@ -58,7 +61,6 @@ function Commande() {
                     tableNumber: '',
                     orderNumber: data.orderNumber
                 });
-                fetchOrderNumber();
             } else {
                 setStatus('error');
                 setResponseMessage(data.message || 'Une erreur est survenue.');
