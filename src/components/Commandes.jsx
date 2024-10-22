@@ -12,6 +12,7 @@ function Commande() {
 
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
+    const [nextOrderNumber, setNextOrderNumber] = useState('');
 
     const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_API_URL;
 
@@ -22,6 +23,7 @@ function Commande() {
             const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
             const data = await response.json();
             setOrderData((prevData) => ({ ...prevData, orderNumber: data.orderNumber }));
+            setNextOrderNumber(data.orderNumber);
         } catch (error) {
             console.error('Erreur lors de la génération du numéro de commande:', error);
         }
@@ -99,6 +101,11 @@ function Commande() {
                     <div className="flex items-center justify-center text-red-500 mb-4">
                         <FaTimesCircle className="mr-2" />
                         <span>{responseMessage}</span>
+                    </div>
+                )}
+                {status === 'success' && nextOrderNumber && (
+                    <div className="text-creme text-xl mt-4">
+                        <p>Le numéro de la commande suivante est : {nextOrderNumber}</p>
                     </div>
                 )}
 
