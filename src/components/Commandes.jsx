@@ -12,7 +12,7 @@ function Commande() {
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
 
-    const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_API_URL;
+    const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || process.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.onrender.com' || process.env.VITE_REACT_API_URL;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -128,6 +128,7 @@ function Commande() {
                         Passer la commande
                     </button>
                 </form>
+                {status === 'loading' && <div className="loader">Commande en cours...</div>}
             </div>
         </div>
     );
