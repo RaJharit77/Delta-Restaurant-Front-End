@@ -54,26 +54,28 @@ function Commande() {
                     orderNumber: nextOrderNumber
                 }),
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erreur lors de la création de la commande: ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Commande créée:', data);
-            })
-            .catch(error => {
-                console.error('Erreur de réseau:', error);
-            });
-    
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur lors de la création de la commande: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Commande créée:', data);
+                })
+                .catch(error => {
+                    console.error('Erreur de réseau:', error);
+                });
+
             const data = await response.json();
-    
-            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status} - ${data.message}`);
-    
+
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status} - ${data.message}`);
+            }
+
             setStatus('success');
             setResponseMessage('Commande envoyée avec succès!');
-    
+
             // Réinitialiser les champs du formulaire
             setOrderData({
                 mealName: '',
@@ -87,7 +89,7 @@ function Commande() {
             setStatus('error');
             setResponseMessage('Erreur de la commande. Réessayez plus tard.');
         }
-    };    
+    };
 
     return (
         <div
