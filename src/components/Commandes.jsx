@@ -86,7 +86,7 @@ function Commande() {
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
-            setResponseMessage('Erreur! Veillez réessayer plus tard.');
+            setResponseMessage('Échec de la commande! Réessayer plus tard.');
         }
     };
 
