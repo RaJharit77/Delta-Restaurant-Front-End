@@ -21,6 +21,10 @@ function Commande() {
     const fetchOrderNumber = async () => {
         try {
             const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Erreur: ${errorData.message}`);
+            }
             const data = await response.json();
             setOrderData((prevData) => ({ ...prevData, orderNumber: data.orderNumber }));
             setNextOrderNumber(data.orderNumber);
@@ -28,7 +32,6 @@ function Commande() {
             console.error('Erreur lors de la génération du numéro de commande:', error);
         }
     };
-
 
     useEffect(() => {
         fetchOrderNumber();
