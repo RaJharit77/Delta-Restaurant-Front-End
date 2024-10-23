@@ -64,15 +64,15 @@ function Commande() {
             const data = await response.json();
             console.log('Commande créée:', data);
             setStatus('success');
-            setResponseMessage('Commande envoyée avec succès!');
+            setResponseMessage(`Commande envoyée avec succès! N°${nextOrderNumber}`);
 
-            // Réinitialisez le formulaire après une commande réussie
+            
             setOrderData({
                 mealName: '',
                 softDrink: '',
                 quantity: '',
                 tableNumber: '',
-                orderNumber: ''
+                orderNumber: nextOrderNumber
             });
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
@@ -108,13 +108,6 @@ function Commande() {
                         <span>{responseMessage}</span>
                     </div>
                 )}
-                {status === 'success' && (
-                    <div className="flex items-center justify-center text-green-500">
-                        <FaCheckCircle className="mr-2" />
-                        <span>{responseMessage} Numéro de commande : {nextOrderNumber}</span>
-                    </div>
-                )}
-
 
                 <form className="w-full" onSubmit={handleSubmit}>
                     <div className="mb-4">
