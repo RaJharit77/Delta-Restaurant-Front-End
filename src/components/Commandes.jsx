@@ -53,29 +53,20 @@ function Commande() {
                     ...orderData,
                     orderNumber: nextOrderNumber
                 }),
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erreur lors de la création de la commande: ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Commande créée:', data);
-                })
-                .catch(error => {
-                    console.error('Erreur de réseau:', error);
-                });
+            });
 
-            const data = await response.json();
-
+            // Vérifiez d'abord si la réponse est au format ok
             if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status} - ${data.message}`);
+                const errorData = await response.json().catch(err => ({ message: 'Erreur de traitement' }));
+                throw new Error(`Erreur lors de la création de la commande: ${errorData.message}`);
             }
 
+            const data = await response.json();
+            console.log('Commande créée:', data);
             setStatus('success');
             setResponseMessage('Commande envoyée avec succès!');
 
+            // Réinitialisez le formulaire après une commande réussie
             setOrderData({
                 mealName: '',
                 softDrink: '',
@@ -86,7 +77,7 @@ function Commande() {
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
-            setResponseMessage('Erreur! Veillez réessayer plus tard.');
+            setResponseMessage('Erreur! Veuillez réessayer plus tard.');
         }
     };
 
