@@ -14,7 +14,7 @@ function Commande() {
     const [status, setStatus] = useState(null);
     const [nextOrderNumber, setNextOrderNumber] = useState('');
 
-    const apiUrl = 'https://delta-restaurant-back-end.vercel.app' || 'https://delta-restaurant-back-end.onrender.com' || import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL;
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://delta-restaurant-back-end.vercel.app';
 
     /*const apiUrl ='http://localhost:5000';*/
 
