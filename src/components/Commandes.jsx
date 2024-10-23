@@ -70,7 +70,8 @@ function Commande() {
                 mealName: '',
                 softDrink: '',
                 quantity: '',
-                tableNumber: ''
+                tableNumber: '',
+                orderNumber: ''
             });
 
             await fetchOrderNumber();
@@ -106,12 +107,6 @@ function Commande() {
                     <div className="flex items-center justify-center text-red-500 mb-4">
                         <FaTimesCircle className="mr-2" />
                         <span>{responseMessage}</span>
-                    </div>
-                )}
-                {status === 'success' && (
-                    <div className="flex items-center justify-center text-green-500">
-                        <FaCheckCircle className="mr-2" />
-                        <span>Numéro de commande : {nextOrderNumber}</span>
                     </div>
                 )}
 
