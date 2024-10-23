@@ -41,19 +41,34 @@ function Commande() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('Données de commande avant envoi:', orderData);
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData),
             });
-    
+
             const data = await response.json();
-    
-            if (response.ok) {
+
+            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status} - ${data.message}`);
+
+            setStatus('success');
+            setResponseMessage('Commande envoyée avec succès!');
+
+            // Réinitialiser les champs du formulaire
+            setOrderData({
+                mealName: '',
+                softDrink: '',
+                quantity: '',
+                tableNumber: '',
+                orderNumber: data.nextOrderNumber
+            });
+
+            /*if (response.ok) {
                 setStatus('success');
                 setResponseMessage('Commande envoyée avec succès!');
-    
+
                 // Réinitialiser les champs du formulaire
                 setOrderData({
                     mealName: '',
@@ -65,15 +80,13 @@ function Commande() {
             } else {
                 setStatus('error');
                 setResponseMessage(data.message || 'Une erreur est survenue.');
-            }
-    
-            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+            }*/
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
         }
-    };     
+    };
 
     return (
         <div
