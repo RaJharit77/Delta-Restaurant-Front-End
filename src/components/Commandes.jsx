@@ -53,6 +53,18 @@ function Commande() {
                     ...orderData,
                     orderNumber: nextOrderNumber
                 }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la création de la commande: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Commande créée:', data);
+            })
+            .catch(error => {
+                console.error('Erreur de réseau:', error);
             });
     
             const data = await response.json();
