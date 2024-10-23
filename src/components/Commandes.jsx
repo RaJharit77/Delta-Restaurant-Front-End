@@ -46,47 +46,33 @@ function Commande() {
             const response = await fetch(`${apiUrl}/api/commandes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(orderData),
+                body: JSON.stringify({
+                    ...orderData,
+                    orderNumber: nextOrderNumber
+                }),
             });
-
+    
             const data = await response.json();
-
+    
             if (!response.ok) throw new Error(`Erreur HTTP: ${response.status} - ${data.message}`);
-
+    
             setStatus('success');
             setResponseMessage('Commande envoyée avec succès!');
-
+    
             // Réinitialiser les champs du formulaire
             setOrderData({
                 mealName: '',
                 softDrink: '',
                 quantity: '',
                 tableNumber: '',
-                orderNumber: data.nextOrderNumber
+                orderNumber: ''
             });
-
-            /*if (response.ok) {
-                setStatus('success');
-                setResponseMessage('Commande envoyée avec succès!');
-
-                // Réinitialiser les champs du formulaire
-                setOrderData({
-                    mealName: '',
-                    softDrink: '',
-                    quantity: '',
-                    tableNumber: '',
-                    orderNumber: data.nextOrderNumber
-                });
-            } else {
-                setStatus('error');
-                setResponseMessage(data.message || 'Une erreur est survenue.');
-            }*/
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
         }
-    };
+    };    
 
     return (
         <div
@@ -115,6 +101,13 @@ function Commande() {
                         <span>{responseMessage}</span>
                     </div>
                 )}
+                {status === 'success' && (
+                    <div className="flex items-center justify-center text-green-500">
+                        <FaCheckCircle className="mr-2" />
+                        <span>{responseMessage} Numéro de commande : {nextOrderNumber}</span>
+                    </div>
+                )}
+
 
                 <form className="w-full" onSubmit={handleSubmit}>
                     <div className="mb-4">
