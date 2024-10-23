@@ -76,7 +76,6 @@ function Commande() {
             setStatus('success');
             setResponseMessage('Commande envoyée avec succès!');
 
-            // Réinitialiser les champs du formulaire
             setOrderData({
                 mealName: '',
                 softDrink: '',
