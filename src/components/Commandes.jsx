@@ -60,7 +60,7 @@ function Commande() {
                     softDrink: '',
                     quantity: '',
                     tableNumber: '',
-                    orderNumber: data.nextOrderNumber // Mise à jour du numéro de commande
+                    orderNumber: data.nextOrderNumber
                 });
             } else {
                 setStatus('error');
