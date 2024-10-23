@@ -39,7 +39,7 @@ function Commande() {
         setOrderData({ ...orderData, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    /**const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
@@ -73,7 +73,42 @@ function Commande() {
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Veuillez réessayer plus tard.');
         }
-    };    
+    }; */
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`${apiUrl}/api/commandes`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData),
+            });
+            
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                const data = await response.json();
+                if (response.ok) {
+                    setStatus('success');
+                    setResponseMessage('Commande envoyée avec succès!');
+                    setOrderData((prevData) => ({
+                        ...prevData,
+                        mealName: '',
+                        softDrink:'',
+                        quantity: '',
+                        tableNumber: '',
+                        orderNumber: data.nextOrderNumber
+                    }));
+                } else {
+                    throw new Error(data.message || 'Une erreur est survenue.');
+                }
+            } else {
+                throw new Error('Réponse non valide du serveur');
+            }
+        } catch (error) {
+            console.error('Erreur lors de la commande:', error);
+            setStatus('error');
+            setResponseMessage('Une erreur est survenue. Veuillez réessayer plus tard.');
+        }
+    };     
 
     return (
         <div
