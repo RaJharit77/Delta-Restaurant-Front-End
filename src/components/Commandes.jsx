@@ -85,7 +85,7 @@ function Commande() {
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
-            setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
+            setResponseMessage('Erreur de la commande. Réessayez plus tard.');
         }
     };    
 
