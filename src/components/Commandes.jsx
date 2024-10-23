@@ -39,7 +39,7 @@ function Commande() {
         setOrderData({ ...orderData, [name]: value });
     };
 
-    /**const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
@@ -71,10 +71,10 @@ function Commande() {
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
-            setResponseMessage('Une erreur est survenue. Veuillez réessayer plus tard.');
+            setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
         }
-    }; */
-    const handleSubmit = async (e) => {
+    };
+    /**const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await fetch(`${apiUrl}/api/commandes`, {
@@ -108,7 +108,7 @@ function Commande() {
             setStatus('error');
             setResponseMessage('Une erreur est survenue. Réessayez plus tard.');
         }
-    };     
+    };*/     
 
     return (
         <div
