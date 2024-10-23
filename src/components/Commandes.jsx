@@ -55,7 +55,6 @@ function Commande() {
                 }),
             });
 
-            // Vérifiez d'abord si la réponse est au format ok
             if (!response.ok) {
                 const errorData = await response.json().catch(err => ({ message: 'Erreur de traitement' }));
                 throw new Error(`Erreur lors de la création de la commande: ${errorData.message}`);
@@ -64,16 +63,17 @@ function Commande() {
             const data = await response.json();
             console.log('Commande créée:', data);
             setStatus('success');
-            setResponseMessage(`Commande envoyée avec succès! N°${nextOrderNumber}`);
+            setResponseMessage(`Commande envoyée avec succès!`);
 
             
             setOrderData({
                 mealName: '',
                 softDrink: '',
                 quantity: '',
-                tableNumber: '',
-                orderNumber: nextOrderNumber
+                tableNumber: ''
             });
+
+            await fetchOrderNumber();
         } catch (error) {
             console.error('Erreur lors de la commande:', error);
             setStatus('error');
@@ -106,6 +106,12 @@ function Commande() {
                     <div className="flex items-center justify-center text-red-500 mb-4">
                         <FaTimesCircle className="mr-2" />
                         <span>{responseMessage}</span>
+                    </div>
+                )}
+                {status === 'success' && (
+                    <div className="flex items-center justify-center text-green-500">
+                        <FaCheckCircle className="mr-2" />
+                        <span>Numéro de commande : {nextOrderNumber}</span>
                     </div>
                 )}
 
