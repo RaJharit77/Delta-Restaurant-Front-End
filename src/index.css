@@ -55,6 +55,10 @@ footer p {
   margin: 0;
 }
 
+.notification {
+  z-index: 1000;
+}
+
 nav {
   transition: all 0.3s ease;
 }
