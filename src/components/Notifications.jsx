@@ -23,7 +23,7 @@ const Notification = () => {
                 href="https://delta-hotel-madagascar.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor"
+                className="inline-block mt-4 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor-pointer"
             >
                 En savoir plus
             </a>
