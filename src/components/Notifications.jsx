@@ -29,7 +29,7 @@ const Notification = () => {
             </a>
             <button
                 onClick={() => setIsVisible(false)}
-                className="absolute top-2 right-2 text-or hover:text-or bg-emerald-700 bg-opacity-50"
+                className="absolute top-2 right-2 text-or hover:text-or bg-emerald-700 bg-opacity-50 cursor-pointer"
             >
                 &times;
             </button>
