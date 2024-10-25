@@ -14,7 +14,7 @@ const Notification = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-5 right-5 bg-gray-700 shadow-lg rounded-lg p-4 w-80 border border-gray-600">
+        <div className="fixed bottom-5 right-5 bg-white bg-opacity-50 shadow-lg rounded-lg p-4 w-80 border border-gray-600">
             <p className="text-creme font-semibold">Visitez notre hôtel !</p>
             <p className="text-gray-300 mt-2">
                 Profitez d'une expérience inoubliable dans notre hôtel de rêve.
@@ -29,7 +29,7 @@ const Notification = () => {
             </a>
             <button
                 onClick={() => setIsVisible(false)}
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-700 bg-emerald-600"
+                className="absolute top-2 right-2 text-emerald-600 hover:text-emerald-600 bg-gray-700 bg-opacity-50"
             >
                 &times;
             </button>
