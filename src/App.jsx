@@ -6,6 +6,7 @@ import ContactPage from './pages/ContactsPage';
 import Footer from './pages/Footer';
 import MenuPage from './pages/MenusPage';
 import NavigationBar from './pages/NavBar';
+import NotificationsPage from './pages/NotificationsPage';
 import ReservationPage from './pages/ReservationsPage';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <CommandePage />
       <ContactPage />
       <Footer />
+      <NotificationsPage />
     </div>
   );
 }
