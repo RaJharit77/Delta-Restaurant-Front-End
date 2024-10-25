@@ -16,8 +16,8 @@ const Notifications = () => {
 
     return (
         <div className="fixed bottom-5 right-5 bg-white bg-opacity-50 shadow-lg rounded-lg p-4 w-80 border border-gray-600 z-50">
-            <p className="text-creme font-semibold text-lg">Visitez notre hôtel !</p>
-            <p className="text-gray-900 mt-2">
+            <p className="text-creme font-semibold text-lg text-left">Visitez notre hôtel !</p>
+            <p className="text-gray-900 mt-2 text-left">
                 Profitez d'une expérience inoubliable dans notre hôtel de rêve.
             </p>
             <button
