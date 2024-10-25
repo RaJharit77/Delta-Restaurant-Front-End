@@ -23,13 +23,13 @@ const Notification = () => {
                 href="https://delta-hotel-madagascar.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor-pointer"
+                className="inline-block mt-4 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor"
             >
                 En savoir plus
             </a>
             <button
                 onClick={() => setIsVisible(false)}
-                className="absolute top-2 right-2 text-or hover:text-or bg-emerald-600 bg-opacity-50"
+                className="absolute top-2 right-2 text-or hover:text-or bg-emerald-700 bg-opacity-50"
             >
                 &times;
             </button>
