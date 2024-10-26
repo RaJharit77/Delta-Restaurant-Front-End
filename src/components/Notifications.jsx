@@ -22,7 +22,7 @@ const Notifications = () => {
             </p>
             <button
                 onClick={() => window.open("https://delta-hotel-madagascar.vercel.app", "_blank")}
-                className="inline-block mt-3.5 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor-pointer"
+                className="inline-block mt-3 bg-creme text-black py-2 px-4 rounded-md hover:bg-or transition duration-300 cursor-pointer"
             >
                 En savoir plus
             </button>

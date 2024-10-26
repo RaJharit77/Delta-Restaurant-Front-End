@@ -26,7 +26,8 @@ function Accueil() {
                     Bienvenue chez Delta Restaurant
                 </h1>
                 <p className="text-xl sm:text-lg mb-8 text-creme">
-                    Découvrez le goût d'une cuisine de luxe.
+                    Découvrez le goût d'une cuisine de luxe,<br />
+                    où chaque plat est une œuvre d'art pour vos sens.
                 </p>
                 <a href="#menu" className="bg-creme text-black py-2 px-4 rounded hover:bg-or transition">
                     Explorer le Menu
