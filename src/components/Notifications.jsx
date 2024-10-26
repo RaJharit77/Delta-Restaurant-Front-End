@@ -15,7 +15,7 @@ const Notifications = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-4 right-4 bg-slate-700 bg-opacity-50 shadow-lg rounded-lg p-4 w-80 border border-gray-600 z-50">
+        <div className="fixed bottom-5 right-5 bg-slate-700 bg-opacity-50 shadow-lg rounded-lg p-4 w-80 border border-gray-600 z-50">
             <p className="text-creme font-semibold text-lg text-left">Visitez notre hôtel !</p>
             <p className="text-gray-200 mt-2 text-left">
                 Vivez une expérience luxueuse et inoubliable dans notre hôtel, conçu pour votre confort et bien-être.
