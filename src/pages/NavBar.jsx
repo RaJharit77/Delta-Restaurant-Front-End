@@ -20,7 +20,6 @@ function NavigationBar() {
         >
             <div className={`max-w-screen-xl mx-auto flex justify-between items-center p-4 ${menuOpen ? 'mt-10' : ''}`}>
                 <a href="https://delta-restaurant-madagascar.onrender.com/" className={`flex items-center ${menuOpen ? 'mt-4' : ''}`}>
-                    {/* Modification de la taille de l'image lorsque le menu est ouvert */}
                     <img
                         src={logo}
                         alt="Delta Restaurant Logo"
