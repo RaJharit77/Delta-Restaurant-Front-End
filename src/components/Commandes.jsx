@@ -20,7 +20,7 @@ function Commande() {
 
     const fetchOrderNumber = async () => {
         try {
-            const response = await fetch(`${apiUrl}/api/generateOrderNumber`);
+            const response = await fetch(`${apiUrl}/api/commandes/generateOrderNumber`);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`Erreur: ${errorData.message}`);
@@ -65,7 +65,6 @@ function Commande() {
             setStatus('success');
             setResponseMessage(`Commande envoyée avec succès!`);
 
-            
             setOrderData({
                 mealName: '',
                 softDrink: '',
