@@ -11,7 +11,7 @@ function Contact() {
 
     const [submitStatus, setSubmitStatus] = useState(null);
 
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || 'https://delta-restaurant-back-end.vercel.app' || import.meta.env.VITE_REACT_API_URL || 'https://delta-restaurant-back-end.onrender.com';
+    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL;
 
     /*const apiUrl = 'http://localhost:5000';*/
 
