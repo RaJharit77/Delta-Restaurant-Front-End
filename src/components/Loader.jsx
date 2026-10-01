@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 function Loader({ message = 'Chargement en cours...', fullScreen = false }) {
     return (
         <div
-            className={`flex flex-col items-center justify-center gap-4 ${
-                fullScreen ? 'min-h-screen' : 'py-24'
-            } bg-gray-50`}
+            className={`flex flex-col items-center justify-center gap-4 ${fullScreen ? 'min-h-screen' : 'py-24'
+                } bg-gray-50`}
         >
             <div className="relative flex items-center justify-center w-24 h-24">
                 <span

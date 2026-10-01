@@ -10,9 +10,8 @@ function Error({
 }) {
     return (
         <div
-            className={`flex items-center justify-center bg-red-50 px-4 ${
-                fullScreen ? 'min-h-screen' : 'py-20'
-            }`}
+            className={`flex items-center justify-center bg-red-50 px-4 ${fullScreen ? 'min-h-screen' : 'py-20'
+                }`}
         >
             <div className="max-w-lg w-full bg-white rounded-2xl shadow-lg border border-red-100 p-8 text-center">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 mb-6">
