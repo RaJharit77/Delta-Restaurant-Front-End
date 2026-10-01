@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { apiUrl } from '../lib/api';
 
 function Reservation() {
     const [reservationData, setReservationData] = useState({
@@ -13,10 +14,6 @@ function Reservation() {
 
     const [status, setStatus] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
-
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL;
-
-    /*const apiUrl = 'http://localhost:5000';*/
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { apiUrl } from '../lib/api';
 
 function Menu() {
     const [menuItems, setMenuItems] = useState([]);
     const [showAll, setShowAll] = useState(false);
     const [showDessert, setShowDessert] = useState(false);
-
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL;
-
-    /*const apiUrl ='http://localhost:5000';*/
 
     useEffect(() => {
         const fetchMenuItems = async () => {

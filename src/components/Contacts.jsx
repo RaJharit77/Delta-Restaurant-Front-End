@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { apiUrl } from '../lib/api';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -10,10 +11,6 @@ function Contact() {
     });
 
     const [submitStatus, setSubmitStatus] = useState(null);
-
-    const apiUrl = import.meta.env.VITE_REACT_APP_API_URL || import.meta.env.VITE_REACT_API_URL;
-
-    /*const apiUrl = 'http://localhost:5000';*/
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -64,7 +61,7 @@ function Contact() {
                         Contactez-nous
                     </h2>
                     <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-300 lg:mx-auto">
-                        N'hésitez pas à nous contacter pour toute question sur nos services ou autre chose.
+                        N&apos;hésitez pas à nous contacter pour toute question sur nos services ou autre chose.
                     </p>
                 </div>
 

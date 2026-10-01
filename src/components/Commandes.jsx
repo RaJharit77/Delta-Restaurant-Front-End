@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import { apiUrl } from '../lib/api';
 
 function Commande() {
     const [orderData, setOrderData] = useState({
@@ -13,10 +14,6 @@ function Commande() {
     const [responseMessage, setResponseMessage] = useState('');
     const [status, setStatus] = useState(null);
     const [nextOrderNumber, setNextOrderNumber] = useState('');
-
-    const apiUrl = import.meta.env.REACT_APP_API_URL ||  import.meta.env.VITE_REACT_API_URL;
-
-    /*const apiUrl ='http://localhost:5000';*/
 
     const fetchOrderNumber = async () => {
         try {
@@ -56,7 +53,7 @@ function Commande() {
             });
 
             if (!response.ok) {
-                const errorData = await response.json().catch(err => ({ message: 'Erreur de traitement' }));
+                const errorData = await response.json().catch(() => ({ message: 'Erreur de traitement' }));
                 throw new Error(`Erreur lors de la création de la commande: ${errorData.message}`);
             }
 
